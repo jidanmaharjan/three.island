@@ -21,7 +21,7 @@ const Beach = ({
   ...props
 }: any) => {
   const beachIslandRef = useRef<any>();
-  const { nodes, materials } = useGLTF(beachIsland);
+  const { nodes, materials }:any = useGLTF(beachIsland);
   const { gl, viewport } = useThree();
 
   const lastX = useRef(0);

@@ -7,7 +7,7 @@ import Merry from "../../models/Merry";
 
 const Island = () => {
   const [isRotating, setIsRotating] = useState(false);
-  const [currentStage, setCurrentStage] = useState(0);
+  const [, setCurrentStage] = useState(0);
   const adjustBeachForScreenSize = () => {
     let screenScale = null;
     let screenPosition = [0, -6.5, -43];
@@ -17,7 +17,7 @@ const Island = () => {
       screenScale = [0.9, 0.9, 0.9];
       screenPosition = [0, -6.5, -43];
     } else {
-      screenScale = [2, 2, 2];
+      screenScale = [1.5, 1.5, 1.5];
       screenPosition = [0, -6.5, -43];
     }
     return [screenScale, screenPosition, rotation];
@@ -26,14 +26,14 @@ const Island = () => {
   const adjustShipForScreenSize = () => {
     let screenScale = null;
     let screenPosition = null;
-    const rotation = [0.1, 4.7, 0];
+    const rotation = [0, 3.3, 0];
 
     if (window.innerWidth < 768) {
       screenScale = [0.5, 0.5, 0.5];
-      screenPosition = [0, -1.5, 0];
+      screenPosition = [0, -11.3, -20];
     } else {
-      screenScale = [0.1, 0.1, 0.1];
-      screenPosition = [0, -5, -3];
+      screenScale = [1, 1, 1];
+      screenPosition = [0, -13.3, -15];
     }
     return [screenScale, screenPosition, rotation];
   };
@@ -56,7 +56,7 @@ const Island = () => {
           <pointLight />
           <spotLight />
           <hemisphereLight groundColor={"#000000"} intensity={1} />
-          <Sky />
+          <Sky position={[0, -100, 0]} />
           <Beach
             position={islandPosition}
             scale={islandScale}
