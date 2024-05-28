@@ -21,7 +21,7 @@ const Beach = ({
   ...props
 }: any) => {
   const beachIslandRef = useRef<any>();
-  const { nodes, materials }:any = useGLTF(beachIsland);
+  const { nodes, materials }: any = useGLTF(beachIsland);
   const { gl, viewport } = useThree();
 
   const lastX = useRef(0);
@@ -56,7 +56,7 @@ const Beach = ({
     }
   };
   // Handle keydown events
-  const handleKeyDown = (event:any) => {
+  const handleKeyDown = (event: any) => {
     if (event.key === "ArrowLeft") {
       if (!isRotating) setIsRotating(true);
 
@@ -71,14 +71,14 @@ const Beach = ({
   };
 
   // Handle keyup events
-  const handleKeyUp = (event:any) => {
+  const handleKeyUp = (event: any) => {
     if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
       setIsRotating(false);
     }
   };
 
   // Touch events for mobile devices
-  const handleTouchStart = (e:any) => {
+  const handleTouchStart = (e: any) => {
     e.stopPropagation();
     e.preventDefault();
     setIsRotating(true);
@@ -87,13 +87,13 @@ const Beach = ({
     lastX.current = clientX;
   };
 
-  const handleTouchEnd = (e:any) => {
+  const handleTouchEnd = (e: any) => {
     e.stopPropagation();
     e.preventDefault();
     setIsRotating(false);
   };
 
-  const handleTouchMove = (e:any) => {
+  const handleTouchMove = (e: any) => {
     e.stopPropagation();
     e.preventDefault();
 
@@ -107,6 +107,16 @@ const Beach = ({
     }
   };
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const handleScroll = (e: any) => {
+    // const scrollY = e.deltaY;
+    // const scrollX = e.deltaX;
+    // const scrollZ = e.deltaZ;
+    // beachIslandRef.current.scale.y = scrollY * 0.01;
+    // beachIslandRef.current.scale.x = scrollX * 0.01;
+    // beachIslandRef.current.scale.z = scrollZ * 0.01;
+  };
+
   useEffect(() => {
     const canvas = gl.domElement;
     canvas.addEventListener("pointerdown", handlePointerDown);
@@ -117,6 +127,7 @@ const Beach = ({
     canvas.addEventListener("touchstart", handleTouchStart);
     canvas.addEventListener("touchend", handleTouchEnd);
     canvas.addEventListener("touchmove", handleTouchMove);
+    canvas.addEventListener("wheel", handleScroll);
 
     return () => {
       canvas.removeEventListener("pointerdown", handlePointerDown);
@@ -127,8 +138,20 @@ const Beach = ({
       canvas.removeEventListener("touchstart", handleTouchStart);
       canvas.removeEventListener("touchend", handleTouchEnd);
       canvas.removeEventListener("touchmove", handleTouchMove);
+      canvas.removeEventListener("wheel", handleScroll);
     };
-  }, [gl, handlePointerDown, handlePointerUp, handlePointerMove]);
+  }, [
+    gl,
+    handlePointerDown,
+    handlePointerUp,
+    handlePointerMove,
+    handleKeyDown,
+    handleKeyUp,
+    handleTouchStart,
+    handleTouchEnd,
+    handleTouchMove,
+    handleScroll,
+  ]);
 
   useFrame(() => {
     if (!isRotating) {

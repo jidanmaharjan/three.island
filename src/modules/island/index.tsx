@@ -56,7 +56,7 @@ const Island = () => {
           <pointLight />
           <spotLight />
           <hemisphereLight groundColor={"#000000"} intensity={1} />
-          <Sky position={[0, -100, 0]} />
+          <Sky position={[0, -100, 0]} isRotating={isRotating} />
           <Beach
             position={islandPosition}
             scale={islandScale}
