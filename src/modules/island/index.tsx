@@ -53,10 +53,16 @@ const Island = () => {
           merry ? "" : "-translate-x-full"
         }`}
       >
+        <button
+          className="absolute top-4 right-4 text-3xl"
+          onClick={() => setMerry(!merry)}
+        >
+          &times;
+        </button>
         <img src={merryImg} alt="The Going Merry Image" />
         <h1 className="text-3xl font-bold text-black mt-4">The Going Merry</h1>
 
-        <section className="overflow-y-scroll">
+        <section className="overflow-y-scroll h-40">
           <h2>Creation and Introduction</h2>
           <p>
             The Going Merry, also known simply as the Merry, was designed and

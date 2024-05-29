@@ -15,8 +15,6 @@ const Merry = ({ ...props }: any) => {
       // Update the Y position to simulate bird-like motion using a sine wave
       shipRef.current.rotation.z = Math.sin(clock.elapsedTime) * 0.1;
 
-      // Update the X and Z positions based on the direction
-
       // Rotate the ship based on the direction
       shipRef.current.rotation.y += 0.001;
 
