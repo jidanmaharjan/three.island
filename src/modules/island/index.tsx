@@ -47,9 +47,9 @@ const Island = () => {
   const [shipScale, shipPosition, shipRotation] = adjustShipForScreenSize();
 
   return (
-    <section className="w-full h-screen relative">
+    <section className="w-full h-screen relative bg-white">
       <div
-        className={`fixed top-0 w-80 h-screen bg-white p-4 z-[10000000] transition-all duration-300 ${
+        className={`fixed top-0 w-80 h-full flex flex-col bg-white p-4 z-[10000000] transition-all duration-300 ${
           merry ? "" : "-translate-x-full"
         }`}
       >
@@ -62,8 +62,7 @@ const Island = () => {
         <img src={merryImg} alt="The Going Merry Image" />
         <h1 className="text-3xl font-bold text-black mt-4">The Going Merry</h1>
 
-        <section className="overflow-y-scroll h-40">
-          <h2>Creation and Introduction</h2>
+        <div className="overflow-y-scroll h-">
           <p>
             The Going Merry, also known simply as the Merry, was designed and
             built by Merry, a loyal servant of Kaya, a wealthy young girl in
@@ -139,17 +138,17 @@ const Island = () => {
             Straw Hat Pirates' journey, leaving a lasting legacy in the world of
             "One Piece."
           </p>
-        </section>
+        </div>
       </div>
       <Canvas
-        className={`w-full h-screen bg-transparent ${
+        className={`w-full h-screen bg-sky-400/70 ${
           isRotating ? "cursor-grabbing" : "cursor-grab"
         }`}
         camera={{ near: 0.1, far: 5000 }}
       >
         <Suspense fallback={<Loader />}>
-          <directionalLight position={[1, 1, 1]} intensity={2} />
-          <ambientLight intensity={0.5} />
+          <directionalLight  position={[1, 1, 1]} intensity={2} />
+          <ambientLight  intensity={0.5} />
           <pointLight />
           <spotLight />
           <hemisphereLight groundColor={"#000000"} intensity={1} />

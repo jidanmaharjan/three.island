@@ -107,16 +107,6 @@ const Beach = ({
   //   }
   // };
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const handleScroll = (e: any) => {
-    // const scrollY = e.deltaY;
-    // const scrollX = e.deltaX;
-    // const scrollZ = e.deltaZ;
-    // beachIslandRef.current.scale.y = scrollY * 0.01;
-    // beachIslandRef.current.scale.x = scrollX * 0.01;
-    // beachIslandRef.current.scale.z = scrollZ * 0.01;
-  };
-
   // useEffect(() => {
   //   const canvas = gl.domElement;
   //   canvas.addEventListener("pointerdown", handlePointerDown);
@@ -127,7 +117,6 @@ const Beach = ({
   //   canvas.addEventListener("touchstart", handleTouchStart);
   //   canvas.addEventListener("touchend", handleTouchEnd);
   //   canvas.addEventListener("touchmove", handleTouchMove);
-  //   canvas.addEventListener("wheel", handleScroll);
 
   //   return () => {
   //     canvas.removeEventListener("pointerdown", handlePointerDown);
@@ -138,7 +127,6 @@ const Beach = ({
   //     canvas.removeEventListener("touchstart", handleTouchStart);
   //     canvas.removeEventListener("touchend", handleTouchEnd);
   //     canvas.removeEventListener("touchmove", handleTouchMove);
-  //     canvas.removeEventListener("wheel", handleScroll);
   //   };
   // }, [
   //   gl,
@@ -150,7 +138,6 @@ const Beach = ({
   //   handleTouchStart,
   //   handleTouchEnd,
   //   handleTouchMove,
-  //   handleScroll,
   // ]);
 
   // useFrame(() => {
